@@ -18,22 +18,10 @@ jobs:
       - run: npm install
       - run: npx cap add android
       - run: npx cap sync android
-      - name: Add app icons
-        run: |
-          IM=$(command -v magick || command -v convert || true)
-          if [ -z "$IM" ]; then
-            sudo apt-get update
-            sudo apt-get install -y imagemagick
-            IM=$(command -v magick || command -v convert)
-          fi
-          R=android/app/src/main/res
-          for e in mdpi:48:108 hdpi:72:162 xhdpi:96:216 xxhdpi:144:324 xxxhdpi:192:432; do
-            IFS=: read n s f <<< "$e"
-            $IM icon-only.png -resize ${s}x${s} $R/mipmap-$n/ic_launcher.png
-            $IM icon-only.png -resize ${s}x${s} $R/mipmap-$n/ic_launcher_round.png
-            $IM icon-foreground.png -resize ${f}x${f} $R/mipmap-$n/ic_launcher_foreground.png
-          done
-          printf '<?xml version="1.0" encoding="utf-8"?>\n<resources>\n    <color name="ic_launcher_background">#000000</color>\n</resources>\n' > $R/values/ic_launcher_background.xml
+      # Firebase config (download from Firebase console, commit to repo root)
+      - run: cp google-services.json android/app/google-services.json
+      # Fixed debug keystore so the SHA-1 registered in Firebase never changes
+      - run: mkdir -p ~/.android && cp debug.keystore ~/.android/debug.keystore
       - run: chmod +x android/gradlew && cd android && ./gradlew assembleDebug
       - run: cp android/app/build/outputs/apk/debug/app-debug.apk YAPPER.apk
       - uses: softprops/action-gh-release@v2
@@ -41,3 +29,4 @@ jobs:
           tag_name: build-${{ github.run_number }}
           name: YAPPER build ${{ github.run_number }}
           files: YAPPER.apk
+          
