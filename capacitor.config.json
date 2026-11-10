@@ -1,0 +1,12 @@
+{
+  "appId": "com.yapper.bgmi",
+  "appName": "YAPPER",
+  "webDir": "www",
+  "android": { "allowMixedContent": false },
+  "plugins": {
+    "FirebaseAuthentication": {
+      "skipNativeAuth": true,
+      "providers": ["google.com"]
+    }
+  }
+}

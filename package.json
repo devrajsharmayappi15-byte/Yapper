@@ -1,0 +1,15 @@
+{
+  "name": "yapper",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": { "sync": "cap sync android" },
+  "dependencies": {
+    "@capacitor-firebase/authentication": "^6.0.0",
+    "@capacitor/android": "^6.0.0",
+    "@capacitor/core": "^6.0.0",
+    "@capacitor/filesystem": "^6.0.0",
+    "@capacitor/share": "^6.0.0",
+    "firebase": "^10.12.2"
+  },
+  "devDependencies": { "@capacitor/cli": "^6.0.0" }
+}
