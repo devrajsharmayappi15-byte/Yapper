@@ -18,6 +18,7 @@ jobs:
       - run: npm install
       - run: npx cap add android
       - run: npx cap sync android
+      - run: cp -r res/. android/app/src/main/res/
       - run: chmod +x android/gradlew && cd android && ./gradlew assembleDebug
       - run: cp android/app/build/outputs/apk/debug/app-debug.apk YAPPER.apk
       - uses: softprops/action-gh-release@v2
@@ -25,4 +26,3 @@ jobs:
           tag_name: build-${{ github.run_number }}
           name: YAPPER build ${{ github.run_number }}
           files: YAPPER.apk
-          
