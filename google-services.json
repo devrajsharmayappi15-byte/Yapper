@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "763143132529",
+    "project_id": "yapper-e2397",
+    "storage_bucket": "yapper-e2397.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:763143132529:android:3ed6d2336d939e1a5e52d0",
+        "android_client_info": {
+          "package_name": "com.yapper.bgmi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "763143132529-ud8rd19il19ge1mak5sv3h5tufqe6bte.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlDAhpWQM6B8Jv1MrLQ9TRpV76riD6OkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "763143132529-ud8rd19il19ge1mak5sv3h5tufqe6bte.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
